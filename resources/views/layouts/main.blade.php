@@ -45,7 +45,7 @@
                                 <a href="/login" class="nav-link">Entrar</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/register" class="nav-link">Cadastrar</a>
+                                <a href="/register" class="nav-link">Cadastrar-se</a>
                             </li>
                         @endguest
                     </ul>
