@@ -15,7 +15,6 @@
     <!-- CSS da Aplicação -->
     <link rel="stylesheet" href="/css/styles.css">
     
-    {{-- Esta linha permite que outras views adicionem estilos específicos --}}
     @stack('styles')
 </head>
 <body>
@@ -23,8 +22,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="collapse navbar-collapse" id="navbar">
                 <a href="/" class="navbar-brand">
-                    {{-- Pode manter o logo ou trocar por um de finanças --}}
-                    <img src="/img/porquinho.svg" alt="Controle de Despesas"> Despesas Familiares
+                    <img src="/img/porquinho.svg" alt="Controle de Despesas">
                 </a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -43,7 +41,7 @@
                                 <a href="/logout" 
                                    class="nav-link" 
                                    onclick="event.preventDefault(); this.closest('form').submit();">
-                                   Sair
+                                   <ion-icon name="log-out-outline"></ion-icon> Sair
                                 </a>
                             </form>
                         </li>
@@ -67,7 +65,7 @@
                     <p class="msg">{{ session('msg') }}</p>
                 @endif
                 @yield('content')
-            </div>
+            }
         </div>
     </main>
     <footer>
@@ -75,11 +73,10 @@
     </footer>
 
     {{-- Scripts --}}
-    <script src="/js/scripts.js"></script> {{-- Script geral, se houver --}}
+    <script src="/js/scripts.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-    {{-- Esta linha permite que outras views adicionem scripts específicos --}}
     @stack('scripts')
 </body>
 </html>
