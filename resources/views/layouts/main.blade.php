@@ -22,7 +22,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="collapse navbar-collapse" id="navbar">
                 <a href="/" class="navbar-brand">
-                    <img src="/img/porquinho.svg" alt="Controle de Despesas">
+                    <img src="/img/porquinho.svg" alt="Controle de Despesas"> Despesas Familiares
                 </a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
