@@ -96,6 +96,13 @@
                             </form>
                         @endif
                         <a href="/despesas/edit/{{ $despesa->id }}" class="btn btn-info btn-sm ml-2">Editar</a>
+
+                        {{-- BOTÃO EXCLUIR ADICIONADO AQUI --}}
+                        <form action="/despesas/{{ $despesa->id }}" method="POST" class="ml-2">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
@@ -106,7 +113,7 @@
     @endif
 </div>
 
-{{-- SCRIPT CORRIGIDO --}}
+{{-- Adicionando um pouco de JavaScript para o nome do ficheiro e feedback visual --}}
 @push('scripts')
 <script>
     function updateFileName(input) {
@@ -116,17 +123,13 @@
 
         if (input.files.length > 0) {
             fileNameSpan.textContent = input.files[0].name;
-            // Muda a cor do botão para verde
             label.classList.remove('btn-outline-secondary');
             label.classList.add('btn-success');
-            // Altera o conteúdo HTML do botão para o novo ícone e texto
             label.innerHTML = '<ion-icon name="checkmark-circle-outline"></ion-icon> Anexado!';
         } else {
             fileNameSpan.textContent = '';
-            // Reverte a cor do botão
             label.classList.add('btn-outline-secondary');
             label.classList.remove('btn-success');
-            // Reverte o conteúdo HTML do botão
             label.innerHTML = '<ion-icon name="cloud-upload-outline"></ion-icon> Anexar';
         }
     }
