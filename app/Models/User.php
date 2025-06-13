@@ -59,11 +59,14 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function events(){
-        return $this->hasMany("App\Models\Event");
-    }
-
-    public function eventsAsParticipant(){
-        return $this->belongsToMany("App\Models\Event");
+    /**
+     * Define a relação de que um Usuário possui muitas Despesas.
+     * ESTA É A FUNÇÃO QUE FALTAVA!
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function despesas()
+    {
+        return $this->hasMany('App\Models\Despesa');
     }
 }

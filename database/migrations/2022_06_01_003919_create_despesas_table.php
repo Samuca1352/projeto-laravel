@@ -13,13 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        // database/migrations/..._create_despesas_table.php
+        // ..._create_despesas_table.php
+        Schema::create('despesas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained(); // Garanta que esta linha existe!
+            $table->string('descricao');
+            $table->decimal('valor', 10, 2);
+            $table->date('data_vencimento');
+            $table->string('status')->default('Pendente');
+            $table->date('data_pagamento')->nullable();
             $table->timestamps();
-            $table->string("title");
-            $table->text("description");
-            $table->string("city");
-            $table->boolean("private");
         });
     }
 

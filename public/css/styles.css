@@ -76,7 +76,7 @@ header{
 /* Search Container */
 
 #search-container{
-    background-image:url("../img/banner.jpg");
+    background-image:url("../img/banner.png");
     background-size: cover;
     background-position: center;
     height:400px;
@@ -85,7 +85,7 @@ header{
 }
 
 #search-container h1{
-    color:#f2a340;
+    color:#fffefd;
     margin-bottom: 30px;
     font-weight: 900;
 }
@@ -187,7 +187,7 @@ header{
 
 #info-container ion-icon {
     font-size:20px;
-    color:#f2a340;
+    color:#40b1f2;
     margin-right:5px;
 }
 

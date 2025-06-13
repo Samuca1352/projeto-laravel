@@ -1,28 +1,59 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EventController;
+use App\Http\Controllers\DespesaController;
+use App\Http\Controllers\PagamentoController;
 
-Route::get('/',[EventController::class,'index']);
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Aqui é onde você pode registrar as rotas web para sua aplicação.
+|
+*/
 
-Route::get('/events/create',[EventController::class,'create'])->middleware("auth");
+// Rota principal - Agora exibe a lista de despesas públicas ou busca
+Route::get('/', [DespesaController::class, 'index']);
 
-Route::get("/events/{id}",[EventController::class,"show"]);
+// --- ROTAS DE DESPESAS (CRUD) ---
 
-Route::post("/events",[EventController::class,"store"]);
+// Rota para a página de criação de despesa
+Route::get('/despesas/create', [DespesaController::class, 'create'])->middleware("auth");
 
-Route::delete("/events/{id}",[EventController::class,"destroy"])->middleware("auth");
+// Rota para salvar uma nova despesa no banco de dados
+Route::post('/despesas', [DespesaController::class, 'store'])->middleware("auth");
 
-Route::get("/events/edit/{id}",[EventController::class,"edit"])->middleware("auth");
+// Rota para exibir os detalhes de uma despesa específica
+Route::get('/despesas/{id}', [DespesaController::class, 'show']);
 
-Route::put("/events/update/{id}",[EventController::class,"update"])->middleware("auth");
+// Rota para a página de edição de uma despesa
+Route::get('/despesas/edit/{id}', [DespesaController::class, 'edit'])->middleware("auth");
 
-Route::get('/contact',function(){
+// Rota para atualizar uma despesa no banco de dados
+Route::put('/despesas/update/{id}', [DespesaController::class, 'update'])->middleware("auth");
+
+// Rota para deletar uma despesa
+Route::delete('/despesas/{id}', [DespesaController::class, 'destroy'])->middleware("auth");
+
+
+// --- ROTAS DO USUÁRIO E DASHBOARD ---
+
+// Rota para o painel do usuário, onde ele vê suas despesas
+Route::get('/dashboard', [DespesaController::class, 'dashboard'])->middleware("auth");
+
+// Rota para marcar uma despesa como paga
+Route::patch('/despesas/pagar/{id}', [DespesaController::class, 'marcarComoPaga'])->middleware('auth')->name('despesas.pagar');
+
+
+// --- ROTA ESTÁTICA (Exemplo: Contato) ---
+Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get("/dashboard",[EventController::class,"dashboard"])->middleware("auth");
 
-Route::post("/events/join/{id}",[EventController::class,"joinEvent"])->middleware("auth");
-
-Route::delete("/events/leave/{id}",[EventController::class,"leaveEvent"])->middleware("auth");
+Route::post('/pagamentos', [PagamentoController::class, 'store'])->middleware('auth')->name('pagamentos.store');
+    
+    // Rota para excluir um pagamento (desfazer)
+Route::delete('/pagamentos/{id}', [PagamentoController::class, 'destroy'])->middleware('auth')->name('pagamentos.destroy');
+    
