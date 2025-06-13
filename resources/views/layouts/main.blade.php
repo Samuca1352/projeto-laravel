@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <a href="/" class="navbar-brand">
                     {{-- Pode manter o logo ou trocar por um de finanças --}}
-                    <img src="/img/porquinho.svg" alt="Controle de Despesas">
+                    <img src="/img/porquinho.svg" alt="Controle de Despesas"> Despesas Familiares
                 </a>
                 <ul class="navbar-nav">
                     <li class="nav-item">

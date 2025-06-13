@@ -31,11 +31,11 @@
       <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Ex: Contas de Casa">
     </div>
 
-    {{-- Novo campo para Imagem (Comprovante) --}}
+    <!-- {{-- Novo campo para Imagem (Comprovante) --}}
     <div class="form-group">
       <label for="imagem">Comprovante (opcional):</label>
       <input type="file" id="imagem" name="imagem" class="form-control-file">
-    </div>
+    </div> -->
 
     <input type="submit" class="btn btn-primary" value="Criar Despesa">
   </form>
