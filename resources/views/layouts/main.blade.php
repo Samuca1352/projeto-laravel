@@ -65,7 +65,7 @@
                     <p class="msg">{{ session('msg') }}</p>
                 @endif
                 @yield('content')
-            }
+            
         </div>
     </main>
     <footer>
