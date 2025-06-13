@@ -27,7 +27,7 @@
             <div class="card-body">
                 <p class="card-date">{{ date('d/m/Y', strtotime($despesa->data_vencimento)) }}</p>
                 <h5 class="card-title">{{ $despesa->descricao }}</h5>
-                <h3>Owner: {{ auth()->user()->name }}</h3>
+                <p class="card-owner"><ion-icon name="person-outline"></ion-icon> {{ $despesa->user->name }}</p>
                 <p class="card-participants">Valor: R$ {{ number_format($despesa->valor, 2, ',', '.') }}</p>
 
                 <a href="/despesas/{{ $despesa->id }}" class="btn btn-primary">Saber mais</a>
